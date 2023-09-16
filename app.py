@@ -1,6 +1,3 @@
-I apologize for the oversight. It seems I made an error in my previous response. To include the service details descriptions, you can use the following updated code:
-
-```python
 from flask import Flask, request
 from pymongo import MongoClient
 from datetime import datetime
@@ -22,7 +19,7 @@ def reply():
     
     if not user:
         res["reply"] += '\n' + ("Hi, thanks for contacting *Offin Security Services Ltd.*\n"
-                                "How can we assist you today? Choose an option:\n"
+                                "How can we assist you today? Choose an option, please re-enter an option incase you are not getting a response:\n"
                                 "1️⃣ Services\n2️⃣ Contact Information\n3️⃣ Leave a Message\n4️⃣ Exit")
         users.insert_one({"number": number, "status": "main", "messages": []})
     elif user["status"] == "main":
@@ -38,8 +35,7 @@ def reply():
                                     "1️⃣ *Guarding Services* \n"
                                     "2️⃣ *Security Technologies Integration Services* \n"
                                     "3️⃣ *Private Investigations Services* \n"
-                                    "4️⃣ *Valuables-in-Transit Services*\n\n"
-                                    "Please enter the service number for more details, or type 0️⃣ to go back to the main menu.")
+                                    "4️⃣ *Valuables-in-Transit Services*")
             users.update_one({"number": number}, {"$set": {"status": "services"}})
         elif option == 2:
             res["reply"] += '\n' + ("*Contact Offin Security Services Ltd.:*\n\n"
@@ -81,7 +77,7 @@ def reply():
                                     "\n\nType 0️⃣ to go back to the main menu.")
         elif option == 0:
             res["reply"] += '\n' + ("How can we assist you today? Choose an option:\n"
-                                    "1️⃣ Services\n2️⃣ Contact Information")
+                                    "1️⃣ Services\n2️⃣ Contact Information\n3️⃣ Leave a Message\n4️⃣ Exit")
             users.update_one({"number": number}, {"$set": {"status": "main"}})
         else:
             res["reply"] += '\n' + ("Please enter a valid response")
@@ -91,6 +87,3 @@ def reply():
 
 if __name__ == "__main__":
     app.run()
-```
-
-This code includes the service details descriptions as requested, and users can select a service number to get more details.
