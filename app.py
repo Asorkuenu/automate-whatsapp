@@ -30,7 +30,7 @@ def reply():
 
         if option == 1:
             res["reply"] += '\n' + (
-                "You can contact us through phone or e-mail.\n\n*Phone*: 991234 56789 \n*E-mail* : contact@theredvelvet.io")
+                "You can contact us through phone or e-mail.\n\n*Phone*: 991234 56789 \n*E-mail* : info@offinsecuritygh.com")
         elif option == 2:
             res["reply"] += '\n' + ("You have entered *ordering mode*.")
             users.update_one(
@@ -43,7 +43,7 @@ def reply():
 
         elif option == 4:
             res["reply"] += '\n' + (
-                "We have multiple stores across the city. Our main center is at *4/54, New Delhi*")
+                "We have multiple stores across the city. Our main center is at *12 Sober Avenue*")
         else:
             res["reply"] += '\n' + ("Please enter a valid response")
     elif user["status"] == "ordering":
