@@ -36,7 +36,7 @@ def reply():
                                     "4️⃣ *Valuables-in-Transit Services*")
             users.update_one({"number": number}, {"$set": {"status": "services"}})
         elif option == 2:
-            res["reply"] += '\n' + ("*Contact Offin Security Services Ltd.:*\n\n"
+            res["reply"] += '\n' + ("Contact Offin Security Services Ltd.\n\n"
                                     "📞 Tel: 020-359-8142\n"
                                     "📧 Email: info@offinsecuritygh.com\n"
                                     "🌐 Website: www.offinsecuritygh.com")
@@ -65,10 +65,12 @@ def reply():
             res["reply"] += '\n' + ("*Valuables-in-Transit Services:*\n\n"
                                     "Our Valuables-in-Transit Services ensure the safe and secure transport of your valuable assets. With a proven track record, we offer comprehensive logistics solutions, armed escorts, and state-of-the-art security measures to safeguard your valuables throughout their journey. Your assets are in trusted hands with us."
                                     "\n\nType 0️⃣ to go back to the main menu.")
+        elif option == 0:
+            res["reply"] += '\n' + ("How can we assist you today? Choose an option:\n"
+                                    "1️⃣ Services\n2️⃣ Contact Information")
+            users.update_one({"number": number}, {"$set": {"status": "main"}})
         else:
             res["reply"] += '\n' + ("Please enter a valid response")
-        # Update user status to "main" after providing the service details
-        users.update_one({"number": number}, {"$set": {"status": "main"}})
 
     users.update_one({"number": number}, {"$push": {"messages": {"text": text, "date": datetime.now()}}})
     return str(res)
