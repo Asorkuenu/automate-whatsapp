@@ -34,26 +34,7 @@ def reply():
                                     "2️⃣ Security Technologies Integration Services\n"
                                     "3️⃣ Private Investigations Services\n"
                                     "4️⃣ Valuables-in-Transit Services")
-        elif option == 2:
-            res["reply"] += '\n' + ("Contact Offin Security Services Ltd.\n\n"
-                                    "📞 Tel: 020-359-8142\n"
-                                    "📧 Email: info@offinsecuritygh.com\n"
-                                    "🌐 Website: www.offinsecuritygh.com")
-        else:
-            res["reply"] += '\n' + ("Please enter a valid response")
-    elif user["status"] == "main":
-        try:
-            option = int(text)
-        except:
-            res["reply"] += '\n' + ("Please enter a valid response")
-            return str(res)
-
-        if option == 1:
-            res["reply"] += '\n' + ("Our Services:\n\n"
-                                    "1️⃣ Guarding Services\n"
-                                    "2️⃣ Security Technologies Integration Services\n"
-                                    "3️⃣ Private Investigations Services\n"
-                                    "4️⃣ Valuables-in-Transit Services")
+            users.update_one({"number": number}, {"$set": {"status": "services"}})
         elif option == 2:
             res["reply"] += '\n' + ("Contact Offin Security Services Ltd.\n\n"
                                     "📞 Tel: 020-359-8142\n"
