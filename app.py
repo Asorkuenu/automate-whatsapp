@@ -61,6 +61,10 @@ def reply():
         elif option == 4:
             res["reply"] += '\n' + ("**Valuables-in-Transit Services:**\n\n"
                                     "Our Valuables-in-Transit Services ensure the safe and secure transport of your valuable assets. With a proven track record, we offer comprehensive logistics solutions, armed escorts, and state-of-the-art security measures to safeguard your valuables throughout their journey. Your assets are in trusted hands with us.")
+        elif option == 0:
+            res["reply"] += '\n' + ("How can we assist you today? Choose an option:\n"
+                                    "1️⃣ Services\n2️⃣ Contact Information")
+            users.update_one({"number": number}, {"$set": {"status": "main"}})
         else:
             res["reply"] += '\n' + ("Please enter a valid response")
 
