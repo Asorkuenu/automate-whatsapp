@@ -16,8 +16,8 @@ def reply():
     number = request.form.get("sender")
     res = {"reply": ""}
     user = users.find_one({"number": number})
-    if bool(user) == False:
-        res["reply"] += '\n' + ("Hi, thanks for contacting *The Red Velvet*.\nYou can choose from one of the options below: "
+    if bool(user) == False: 
+        res["reply"] += '\n' + ("Hi, thanks for contacting *Offin Security Services Ltd.*.\nYou can choose from one of the options below: "
                     "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
                     "To get our *address*")
         users.insert_one({"number": number, "status": "main", "messages": []})
